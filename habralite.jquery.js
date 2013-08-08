@@ -1,3 +1,4 @@
+$(function() {
 /* Return human-friendly declension of provided numbers */
 function declOfNum(number, titles) {
     cases = [2, 0, 1, 1, 1, 2];
@@ -19,12 +20,10 @@ function commentsBtnClick (event) {
 /* C-style Main() =) */
 (function(){
     /* Sets of {NodeList} elements to operate with */
-    var allReplies = $('.reply_comments');
-    var sidebarImgs = $('.sidebar_right > .banner_300x500, .sidebar_right > #htmlblock_placeholder');
-    var contentImgs = $('.content img, .message img');
-
     /* Hide all images and nested replies by default */
-    $(allReplies, sidebarImgs, contentImgs).hide();
+    var allReplies = $('.reply_comments').hide();
+    var sidebarImgs = $('.sidebar_right > .banner_300x500, .sidebar_right > #htmlblock_placeholder').hide();
+    var contentImgs = $('.content img, .message img').hide();
 
     /* Add button to toggle images visibility */
     var newImgBtn = createBtn('habraimage', '◄ Показать изображения');
@@ -47,4 +46,7 @@ function commentsBtnClick (event) {
             }
         }
     });
+    /* Fix layout */
+    $('.reply').css({'margin-bottom': '1em'});
 })();
+});
