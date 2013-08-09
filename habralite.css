@@ -1,0 +1,12 @@
+.habraimage {
+  position: fixed; 
+  right: 6%; 
+  z-index: 1;
+}
+.reply_comments, 
+.sidebar_right > .banner_300x500,
+.sidebar_right > #htmlblock_placeholder,
+.content img,
+.message img {
+  display: none !important;
+}
