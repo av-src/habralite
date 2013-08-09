@@ -7,7 +7,7 @@ function loadStylesheet(url, id) {
         var head = document.getElementsByTagName('head')[0];
         var link = document.createElement('link');
             link.rel = 'stylesheet';
-            link.src = url;
+            link.href = url;
             link.id = id;
         head.appendChild(link);
     }
@@ -87,19 +87,22 @@ function commentsBtnClick (event) {
 
 /* C-style Main() =) */
 (function(){
+    /* Load external css */
+    loadStylesheet('https://raw.github.com/avbobylev/habralite/patch-1/habralite.css', 'habralite');
+    
     /* Sets of {NodeList} elements to operate with */
     var allReplies = document.querySelectorAll('.reply_comments');
     var sidebarImgs = document.querySelectorAll('.sidebar_right > .banner_300x500, .sidebar_right > #htmlblock_placeholder');
     var contentImgs = document.querySelectorAll('.content img, .message img');
 
     /* Hide all images and nested replies by default */
-    hideNodes([allReplies, sidebarImgs, contentImgs]);
+    //hideNodes([allReplies, sidebarImgs, contentImgs]);
 
     /* Add button to toggle images visibility */
     var newImgBtn = createBtn('habraimage', '◄ Показать изображения', function (event) {event.preventDefault(); toggleElements(contentImgs);});
     document.querySelectorAll('.main_menu')[0].appendChild(newImgBtn);
     /* Make buton fixed */
-    addCSSRule('.habraimage', 'position:fixed; right: 6%; z-index: 1;');
+    //addCSSRule('.habraimage', 'position:fixed; right: 6%; z-index: 1;');
 
     /* Add buttons to toggle comments visibility */
     var comments = document.querySelectorAll('.comments_list > .comment_item'),
