@@ -1,3 +1,17 @@
+/* Load external css */
+function loadStylesheet(url, id) {
+    url = url || 'about:blank';
+    id = id || 'stylesheet-'+Date.now();
+
+    if(!document.getElementById(id)) {
+        var head = document.getElementsByTagName('head')[0];
+        var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.src = url;
+            link.id = id;
+        head.appendChild(link);
+    }
+}
 /* Adds css rules to specified selector */
 function addCSSRule(selector, rules, sheet) {
     sheet = sheet || document.styleSheets[0];
